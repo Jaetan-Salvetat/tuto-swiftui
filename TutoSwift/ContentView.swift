@@ -21,6 +21,10 @@ struct ContentView: View {
                     destination: IntroScreen()) {
                         NavigationButton(text: "Introduction")
                     }
+                NavigationLink(
+                    destination: LandmarkList()) {
+                        NavigationButton(text: "List and Navigation")
+                    }
                 Spacer()
             }
         }
