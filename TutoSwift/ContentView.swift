@@ -49,6 +49,6 @@ private struct NavigationButton: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ModelData())
     }
 }
