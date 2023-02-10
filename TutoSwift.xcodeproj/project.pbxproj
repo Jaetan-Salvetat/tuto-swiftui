@@ -150,6 +150,7 @@
 		885487232993F929008F0626 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				887F9DE029965DD500145070 /* HandlingUserInput */,
 				88EC29C42994F54500BFFDAC /* ListAndNavigation */,
 				885487242993F960008F0626 /* Intro */,
 			);
@@ -164,6 +165,13 @@
 				885487252993F98A008F0626 /* IntroScreen.swift */,
 			);
 			path = Intro;
+			sourceTree = "<group>";
+		};
+		887F9DE029965DD500145070 /* HandlingUserInput */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HandlingUserInput;
 			sourceTree = "<group>";
 		};
 		88EC29C42994F54500BFFDAC /* ListAndNavigation */ = {
