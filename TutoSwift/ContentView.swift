@@ -11,10 +11,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    Text("SwiftUI tutorial")
-                        .font(.system(size: 25))
-                }
                 Spacer()
                 
                 NavigationLink(
@@ -27,18 +23,21 @@ struct ContentView: View {
                     }
                 Spacer()
             }
+            .navigationTitle("SwiftUI tutorial")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 private struct NavigationButton: View {
+    @Environment(\.colorScheme) var colorScheme
     var text: String
     
     var body: some View {
         HStack {
             Spacer()
             Text(text)
-                .tint(.black)
+                .tint(colorScheme == .dark ? .white : .black)
             Spacer()
         }
         .padding(.vertical, 10)
@@ -50,6 +49,6 @@ private struct NavigationButton: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ModelData())
     }
 }
