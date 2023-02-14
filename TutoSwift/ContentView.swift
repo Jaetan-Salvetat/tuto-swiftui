@@ -10,12 +10,41 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            NavigationLink(
-                destination: IntroScreen()) {
-                    Text("Introduction")
+            VStack {
+                HStack {
+                    Text("SwiftUI tutorial")
+                        .font(.system(size: 25))
                 }
+                Spacer()
+                
+                NavigationLink(
+                    destination: IntroScreen()) {
+                        NavigationButton(text: "Introduction")
+                    }
+                NavigationLink(
+                    destination: LandmarkList()) {
+                        NavigationButton(text: "List and Navigation")
+                    }
+                Spacer()
+            }
         }
-        .navigationTitle("SwiftUI exercices")
+    }
+}
+
+private struct NavigationButton: View {
+    var text: String
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            Text(text)
+                .tint(.black)
+            Spacer()
+        }
+        .padding(.vertical, 10)
+        .background(.gray.opacity(0.3))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(.horizontal, 20)
     }
 }
 
