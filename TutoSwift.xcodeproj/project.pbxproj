@@ -35,6 +35,8 @@
 		88B92292299FE332005ACC43 /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B92291299FE332005ACC43 /* ProfileSummary.swift */; };
 		88B92294299FE358005ACC43 /* HikeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B92293299FE358005ACC43 /* HikeBadge.swift */; };
 		88B92296299FF046005ACC43 /* ProfileEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B92295299FF046005ACC43 /* ProfileEditor.swift */; };
+		88B92299299FF588005ACC43 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B92298299FF588005ACC43 /* PageViewController.swift */; };
+		88B9229B299FF607005ACC43 /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9229A299FF607005ACC43 /* FeatureCard.swift */; };
 		88DBB992299D132200A2F4D7 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DBB991299D132200A2F4D7 /* HexagonParameters.swift */; };
 		88DBB994299D136E00A2F4D7 /* BadgeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DBB993299D136E00A2F4D7 /* BadgeBackground.swift */; };
 		88DBB996299D15A500A2F4D7 /* BadgeSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DBB995299D15A500A2F4D7 /* BadgeSymbol.swift */; };
@@ -97,6 +99,8 @@
 		88B92291299FE332005ACC43 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
 		88B92293299FE358005ACC43 /* HikeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeBadge.swift; sourceTree = "<group>"; };
 		88B92295299FF046005ACC43 /* ProfileEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditor.swift; sourceTree = "<group>"; };
+		88B92298299FF588005ACC43 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		88B9229A299FF607005ACC43 /* FeatureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCard.swift; sourceTree = "<group>"; };
 		88DBB991299D132200A2F4D7 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
 		88DBB993299D136E00A2F4D7 /* BadgeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBackground.swift; sourceTree = "<group>"; };
 		88DBB995299D15A500A2F4D7 /* BadgeSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSymbol.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 		885487232993F929008F0626 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				88B92297299FF562005ACC43 /* UIKit */,
 				88B9228C299FE2D7005ACC43 /* UIControls */,
 				88B92281299FD657005ACC43 /* CompleceInterface */,
 				88B92271299EF849005ACC43 /* AnimatingAndTransition */,
@@ -258,6 +263,15 @@
 				88B92295299FF046005ACC43 /* ProfileEditor.swift */,
 			);
 			path = UIControls;
+			sourceTree = "<group>";
+		};
+		88B92297299FF562005ACC43 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				88B92298299FF588005ACC43 /* PageViewController.swift */,
+				88B9229A299FF607005ACC43 /* FeatureCard.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		88DBB990299D12ED00A2F4D7 /* DrawingPathsAndShapes */ = {
@@ -475,6 +489,7 @@
 				88EC29C62994F55C00BFFDAC /* Landmark.swift in Sources */,
 				88B92294299FE358005ACC43 /* HikeBadge.swift in Sources */,
 				88DBB99B299D166B00A2F4D7 /* DrawingScreen.swift in Sources */,
+				88B92299299FF588005ACC43 /* PageViewController.swift in Sources */,
 				88DBB994299D136E00A2F4D7 /* BadgeBackground.swift in Sources */,
 				88EC29CF2994F73E00BFFDAC /* LandmarkRow.swift in Sources */,
 				88B9228B299FD9AB005ACC43 /* LandmarkScreen.swift in Sources */,
@@ -482,6 +497,7 @@
 				88831CB429950BA400390085 /* LandmarkDetail.swift in Sources */,
 				88B9227D299EF996005ACC43 /* GraphCapsule.swift in Sources */,
 				887F9DE2299664AE00145070 /* FavoriteButton.swift in Sources */,
+				88B9229B299FF607005ACC43 /* FeatureCard.swift in Sources */,
 				88EC29C82994F63200BFFDAC /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
