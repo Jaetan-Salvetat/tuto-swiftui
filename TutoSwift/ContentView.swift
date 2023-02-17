@@ -21,6 +21,10 @@ struct ContentView: View {
                     destination: LandmarkList()) {
                         NavigationButton(text: "List and Navigation")
                     }
+                NavigationLink(
+                    destination: HikeView()) {
+                        NavigationButton(text: "Animations and transitions")
+                    }
                 Spacer()
             }
             .navigationTitle("SwiftUI tutorial")

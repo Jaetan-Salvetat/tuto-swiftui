@@ -2,21 +2,28 @@
 //  ModelData.swift
 //  TutoSwift
 //
-//  Created by Gaetan Salvi on 09/02/2023.
+//  Created by Gaetan Salvi on 17/02/2023.
 //
 
 import Foundation
 
-final class ModelData: ObservableObject {
-    @Published var landmarks: [Landmark] = loadHikes("landmarkData.json")
+final class HikeModelData: ObservableObject {
+    @Published var landmarks: [Landmark] = load("landmarkData.json")
+    @Published var animationType = AnimationType.fade
+    var hikes: [Hike] = load("hikeData.json")
 }
 
-private func loadHikes<T: Decodable>(_ filename: String) -> T {
+enum AnimationType {
+    case fade
+    case slide
+}
+
+func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-    else {
-        fatalError("Couldn't find \(filename) in main bundle.")
+        else {
+            fatalError("Couldn't find \(filename) in main bundle.")
     }
 
     do {
