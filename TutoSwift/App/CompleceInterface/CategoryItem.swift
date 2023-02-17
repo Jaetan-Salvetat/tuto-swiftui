@@ -15,6 +15,7 @@ struct CategoryItem: View {
             landmark.image
                 .resizable()
                 .renderingMode(.original)
+                .cornerRadius(10)
                 .frame(width: 155, height: 155)
             Text(landmark.name)
                 .foregroundColor(.primary)

@@ -11,6 +11,7 @@ final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
     @Published var hikeScreenAnimationType = AnimationType.fade
     @Published var profile = Profile.default
+    @Published var currentPage = 0
     var hikes: [Hike] = load("hikeData.json")
     
     var features: [Landmark] {
