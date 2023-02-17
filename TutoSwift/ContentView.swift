@@ -13,48 +13,41 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                
-                NavigationLink(
-                    destination: IntroScreen()) {
+                NavigationLink(destination: IntroScreen()) {
                         NavigationButton(text: "Introduction")
                     }
                     .padding([.vertical], 6)
                 
-                NavigationLink(
-                    destination: LandmarkList()) {
+                NavigationLink(destination: LandmarkList()) {
                         NavigationButton(text: "List and Navigation")
                     }
                     .padding([.vertical], 6)
                 
-                NavigationLink(
-                    destination: HikeView()) {
+                NavigationLink(destination: HikeView()) {
                         NavigationButton(text: "Animations and transitions")
                     }
                     .padding([.vertical], 6)
                 
-                NavigationLink(
-                destination: CategoryHome()) {
+                NavigationLink(destination: CategoryHome()) {
                     NavigationButton(text: "Complexe interfaces")
                 }
                 .padding([.vertical], 6)
                 
-                NavigationLink(
-                destination: LandmarkScreen()) {
+                NavigationLink(destination: LandmarkScreen()) {
                     NavigationButton(text: "Landmarks screen")
                 }
                 .padding([.vertical], 6)
                 
-                Button {
-                    showingProfile.toggle()
-                } label: {
+                NavigationLink (destination: ProfileHost()) {
                     NavigationButton(text: "UI Controls")
                 }
+                
                 .padding([.vertical], 6)
                 
                 Spacer()
             }
-            .navigationTitle("SwiftUI tutorial")
+            .padding([.top], 70)
+            .navigationTitle("SwiftUI tutorials")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
