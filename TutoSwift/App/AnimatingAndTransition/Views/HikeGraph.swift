@@ -40,6 +40,7 @@ struct HikeGraph: View {
                         range: observation[keyPath: path],
                         overallRange: overallRange
                     )
+                    .animation(.ripple(index: index))
                 }
                 .offset(x: 0, y: proxy.size.height * heightRatio)
             }
@@ -59,8 +60,16 @@ func magnitude(of range: Range<Double>) -> Double {
     range.upperBound - range.lowerBound
 }
 
+extension Animation {
+    static func ripple(index: Int) -> Animation {
+        Animation.spring(dampingFraction: 0.5)
+            .speed(2)
+            .delay(0.03 * Double(index))
+    }
+}
+
 struct HikeGraph_Previews: PreviewProvider {
-    static var hike = ModelData().hikes[0]
+    static var hike = HikeModelData().hikes[0]
 
     static var previews: some View {
         Group {

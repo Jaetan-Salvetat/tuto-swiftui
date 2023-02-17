@@ -7,9 +7,15 @@
 
 import Foundation
 
-final class ModelData: ObservableObject {
+final class HikeModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
+    @Published var animationType = AnimationType.fade
     var hikes: [Hike] = load("hikeData.json")
+}
+
+enum AnimationType {
+    case fade
+    case slide
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

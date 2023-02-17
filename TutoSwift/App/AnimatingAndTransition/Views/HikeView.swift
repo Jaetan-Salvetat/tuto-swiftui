@@ -8,11 +8,32 @@
 import SwiftUI
 
 struct HikeView: View {
-    var hike: Hike
+    var hike = HikeModelData().hikes[0]
     @State private var showDetail = false
+    @StateObject var viewModel = HikeModelData()
 
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button {
+                    viewModel.animationType = .fade
+                } label: {
+                    NavigationButton(text: "Fade")
+                        .foregroundColor(viewModel.animationType == .fade ? .blue : nil)
+                }
+                Spacer()
+                Button {
+                    viewModel.animationType = .slide
+                } label: {
+                    NavigationButton(text: "Slide")
+                        .foregroundColor(viewModel.animationType == .slide ? .blue : nil)
+                }
+                Spacer()
+            }
+            
+            Spacer()
+            
             HStack {
                 HikeGraph(hike: hike, path: \.elevation)
                     .frame(width: 50, height: 30)
@@ -26,7 +47,9 @@ struct HikeView: View {
                 Spacer()
 
                 Button {
-                    showDetail.toggle()
+                    withAnimation(/*.easeInOut(duration: 0.3)*/) {
+                        showDetail.toggle()
+                    }
                 } label: {
                     Label("Graph", systemImage: "chevron.right.circle")
                         .labelStyle(.iconOnly)
@@ -38,15 +61,29 @@ struct HikeView: View {
                 }
             }
 
-            if showDetail {
+            if viewModel.animationType == .slide && showDetail {
+                HikeDetail(hike: hike)
+                    .transition(.slide)
+            } else if viewModel.animationType != .slide && showDetail {
                 HikeDetail(hike: hike)
             }
+            
+            Spacer()
         }
+    }
+}
+
+
+extension AnyTransition {
+    static var moveAndFade: AnyTransition {
+        AnyTransition.slide
     }
 }
 
 struct HikeView_Previews: PreviewProvider {
     static var previews: some View {
-        HikeView(hike: HikeModelData().hikes[0])
+        VStack {
+            HikeView()
+        }
     }
 }
