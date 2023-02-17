@@ -69,7 +69,7 @@ extension Animation {
 }
 
 struct HikeGraph_Previews: PreviewProvider {
-    static var hike = HikeModelData().hikes[0]
+    static var hike = ModelData().hikes[0]
 
     static var previews: some View {
         Group {
