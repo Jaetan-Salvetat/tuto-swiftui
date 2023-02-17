@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct HikeView: View {
-    var hike = HikeModelData().hikes[0]
+    var hike = ModelData().hikes[0]
     @State private var showDetail = false
-    @StateObject var viewModel = HikeModelData()
+    @EnvironmentObject var viewModel: ModelData
 
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button {
-                    viewModel.animationType = .fade
+                    viewModel.hikeScreenAnimationType = .fade
                 } label: {
                     NavigationButton(text: "Fade")
-                        .foregroundColor(viewModel.animationType == .fade ? .blue : nil)
+                        .foregroundColor(viewModel.hikeScreenAnimationType == .fade ? .blue : nil)
                 }
                 Spacer()
                 Button {
-                    viewModel.animationType = .slide
+                    viewModel.hikeScreenAnimationType = .slide
                 } label: {
                     NavigationButton(text: "Slide")
-                        .foregroundColor(viewModel.animationType == .slide ? .blue : nil)
+                        .foregroundColor(viewModel.hikeScreenAnimationType == .slide ? .blue : nil)
                 }
                 Spacer()
             }
@@ -61,10 +61,10 @@ struct HikeView: View {
                 }
             }
 
-            if viewModel.animationType == .slide && showDetail {
+            if viewModel.hikeScreenAnimationType == .slide && showDetail {
                 HikeDetail(hike: hike)
                     .transition(.slide)
-            } else if viewModel.animationType != .slide && showDetail {
+            } else if viewModel.hikeScreenAnimationType != .slide && showDetail {
                 HikeDetail(hike: hike)
             }
             
@@ -84,6 +84,7 @@ struct HikeView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HikeView()
+                .environmentObject(ModelData())
         }
     }
 }

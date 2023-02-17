@@ -13,7 +13,8 @@ struct TutoSwiftApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(modelData)
+            ContentView()
+                .environmentObject(modelData)
         }
     }
 }

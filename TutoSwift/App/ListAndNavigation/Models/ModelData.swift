@@ -8,7 +8,9 @@
 import Foundation
 
 final class ModelData: ObservableObject {
-    @Published var landmarks: [Landmark] = loadHikes("landmarkData.json")
+    @Published var landmarks: [Landmark] = load("landmarkData.json")
+    @Published var hikeScreenAnimationType = AnimationType.fade
+    var hikes: [Hike] = load("hikeData.json")
     
     var features: [Landmark] {
         landmarks.filter { $0.isFeatured }
@@ -22,7 +24,12 @@ final class ModelData: ObservableObject {
     }
 }
 
-private func loadHikes<T: Decodable>(_ filename: String) -> T {
+enum AnimationType {
+    case fade
+    case slide
+}
+
+private func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
