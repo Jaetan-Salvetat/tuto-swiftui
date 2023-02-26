@@ -8,41 +8,64 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingProfile = false
+    
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                
-                NavigationLink(
-                    destination: IntroScreen()) {
+                NavigationLink(destination: IntroScreen()) {
                         NavigationButton(text: "Introduction")
                     }
-                NavigationLink(
-                    destination: LandmarkList()) {
+                    .padding([.vertical], 6)
+                
+                NavigationLink(destination: LandmarkList()) {
                         NavigationButton(text: "List and Navigation")
                     }
-                NavigationLink(
-                    destination: HikeView()) {
+                    .padding([.vertical], 6)
+                
+                NavigationLink(destination: HikeView()) {
                         NavigationButton(text: "Animations and transitions")
                     }
-                NavigationLink(
-                destination: CategoryHome()) {
+                    .padding([.vertical], 6)
+                
+                NavigationLink(destination: CategoryHome()) {
                     NavigationButton(text: "Complexe interfaces")
                 }
-                NavigationLink(
-                destination: LandmarkScreen()) {
+                .padding([.vertical], 6)
+                
+                NavigationLink(destination: LandmarkScreen()) {
                     NavigationButton(text: "Landmarks screen")
                 }
+                .padding([.vertical], 6)
+                
+                NavigationLink (destination: ProfileHost()) {
+                    NavigationButton(text: "UI Controls")
+                }
+                
+                .padding([.vertical], 6)
+                
                 Spacer()
             }
-            .navigationTitle("SwiftUI tutorial")
+            .padding([.top], 70)
+            .navigationTitle("SwiftUI tutorials")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button {
+                    showingProfile.toggle()
+                } label: {
+                    Label("User Profile", systemImage: "person.crop.circle")
+                }
+            }
+            .sheet(isPresented: $showingProfile) {
+                ProfileHost()
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(ModelData())
+        ContentView()
+            .environmentObject(ModelData())
     }
 }
